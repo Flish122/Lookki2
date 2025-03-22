@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календарь - Lookki</title>
+    <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <style>
+        body {
+            background-color: #E3E3E3;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            padding: 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2B5718;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            width: 90%;
+        }
+        .menu button {
+            background: #FFF899;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .dropdown {
+            background: white;
+            border: 1px solid #A9B7F0;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .day {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .sun {
+            background: #FFF899;
+        }
+        .water {
+            background: #A9B7F0;
+            color: white;
+        }
+        .months {
+            display: none;
+            background: #FFF;
+            border: 1px solid #A9B7F0;
+            padding: 10px;
+            border-radius: 10px;
+            position: absolute;
+            width: 120px;
+        }
+
+        .months div {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .months div:hover {
+            background: #A9B7F0;
+            color: white;
+        }
+        .sun { background: #FFF899; }
+        .water { background: #A9B7F0; color: white; }
+
+        .notification {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">Lookki</div>
+        <div class="notification" onclick="window.location.href='notifications.html'" style="font-size: 32px;">🔔</div>
+    </div>
+
+    <div class="menu">
+        <button onclick="window.location.href='project.html'">Назад</button>
+    </div>
+
+    <div class="dropdown" onclick="toggleMonths()">Month ⬇️</div>
+    <div class="months" id="monthList">
+        <div onclick="selectMonth('Январь')">Январь</div>
+        <div onclick="selectMonth('Февраль')">Февраль</div>
+        <div onclick="selectMonth('Март')">Март</div>
+        <div onclick="selectMonth('Апрель')">Апрель</div>
+        <div onclick="selectMonth('Май')">Май</div>
+        <div onclick="selectMonth('Июнь')">Июнь</div>
+        <div onclick="selectMonth('Июль')">Июль</div>
+        <div onclick="selectMonth('Август')">Август</div>
+        <div onclick="selectMonth('Сентябрь')">Сентябрь</div>
+        <div onclick="selectMonth('Октябрь')">Октябрь</div>
+        <div onclick="selectMonth('Ноябрь')">Ноябрь</div>
+        <div onclick="selectMonth('Декабрь')">Декабрь</div>
+    </div>
+    
+
+    <div class="calendar">
+        <div class="day">1</div>
+        <div class="day">2 </div>
+        <div class="day">3</div>
+        <div class="day">4</div>
+        <div class="day">5</div>
+        <div class="day">6 </div>
+
+        <div class="day">7 </div>
+        <div class="day">8</div>
+        <div class="day">9</div>
+        <div class="day">10</div>
+        <div class="day">11</div>
+        <div class="day">12 </div>
+
+
+        <div class="day">13</div>
+        <div class="day">14 </div>
+        <div class="day">15 </div>
+        <div class="day">16</div>
+        <div class="day">17</div>
+        <div class="day">18</div>
+
+
+        <div class="day">19</div>
+        <div class="day">20 </div>
+        <div class="day">21</div>
+        <div class="day">22</div>
+        <div class="day">23 </div>
+        <div class="day">24</div>
+
+
+        <div class="day">25</div>
+        <div class="day">26</div>
+        <div class="day">27</div>
+        <div class="day">28</div>
+        <div class="day">29</div>
+
+
+        <div class="day">30</div>
+        <div class="day">31</div>
+    </div>
+
+    <script>
+        function toggleMonths() {
+            const monthList = document.getElementById('monthList');
+            monthList.style.display = monthList.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function selectMonth(month) {
+            document.querySelector('.dropdown').textContent = month + ' ⬇️';
+            document.getElementById('monthList').style.display = 'none';
+            // Здесь можно добавить обновление календаря в зависимости от выбранного месяца
+        }
+
+        // Закрытие списка при клике вне его
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown');
+            const monthList = document.getElementById('monthList');
+            if (!dropdown.contains(event.target) && !monthList.contains(event.target)) {
+                monthList.style.display = 'none';
+            }
+        });
+    </script>
+    <script>
+        const calendar = document.getElementById("calendar");
+for (let i = 1; i <= 31; i++) {
+    let day = document.createElement("div");
+    day.className = "day";
+    day.textContent = i;
+    day.onclick = () => toggleIcon(day);
+    calendar.appendChild(day);
+}
+    </script>
+    <script>
+        document.querySelectorAll(".day").forEach(day => {
+                day.addEventListener("click", () => toggleIcon(day));
+        });
+
+        function toggleIcon(day) {
+    if (day.dataset.icon === "sun") {
+        day.innerHTML = day.textContent.replace(" ☀️", " 💧");
+        day.dataset.icon = "water";
+        day.style.backgroundColor = "#A9B7F0"; // Синий фон для воды
+        day.style.color = "white";
+    } else if (day.dataset.icon === "water") {
+        day.innerHTML = day.textContent.replace(" 💧", "");
+        delete day.dataset.icon;
+        day.style.backgroundColor = "white"; // Возвращаем стандартный фон
+        day.style.color = "black";
+    } else {
+        day.innerHTML += " ☀️";
+        day.dataset.icon = "sun";
+        day.style.backgroundColor = "#FFF899"; // Желтый фон для солнца
+        day.style.color = "black";
+    }
+}
+
+
+function checkBackground() {
+    const days = document.querySelectorAll(".day");
+    let hasSun = false;
+    let hasWater = false;
+
+    days.forEach(day => {
+        if (day.dataset.icon === "sun") hasSun = true;
+        if (day.dataset.icon === "water") hasWater = true;
+    });
+
+    if (hasSun && !hasWater) {
+        document.body.style.backgroundColor = "#FFD700"; // Желтый фон
+    } else if (hasWater && !hasSun) {
+        document.body.style.backgroundColor = "#87CEEB"; // Голубой фон
+    } else {
+        document.body.style.backgroundColor = "#E3E3E3"; // Возвращаем стандартный фон
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadCalendarState();
+});
+
+function toggleIcon(day) {
+    const selectedMonth = document.querySelector(".dropdown").textContent.trim().split(" ")[0]; // Определяем текущий месяц
+    const dayNumber = day.textContent.replace(" ☀️", "").replace(" 💧", "").trim(); // Очищаем текст от значков
+
+    if (day.dataset.icon === "sun") {
+        day.innerHTML = `${dayNumber} 💧`;
+        day.dataset.icon = "water";
+        day.style.backgroundColor = "#A9B7F0"; // Синий фон
+        day.style.color = "white";
+    } else if (day.dataset.icon === "water") {
+        day.innerHTML = dayNumber;
+        delete day.dataset.icon;
+        day.style.backgroundColor = "white"; // Обычный фон
+        day.style.color = "black";
+    } else {
+        day.innerHTML = `${dayNumber} ☀️`;
+        day.dataset.icon = "sun";
+        day.style.backgroundColor = "#FFF899"; // Жёлтый фон
+        day.style.color = "black";
+    }
+
+    saveCalendarState(selectedMonth);
+}
+
+function saveCalendarState(month) {
+    let calendarState = {};
+    document.querySelectorAll(".day").forEach(day => {
+        const dayNumber = day.textContent.replace(" ☀️", "").replace(" 💧", "").trim();
+        if (day.dataset.icon) {
+            calendarState[dayNumber] = day.dataset.icon;
+        }
+    });
+    localStorage.setItem(`calendar-${month}`, JSON.stringify(calendarState)); // Сохраняем данные в LocalStorage
+}
+
+function loadCalendarState() {
+    const selectedMonth = document.querySelector(".dropdown").textContent.trim().split(" ")[0];
+    const savedState = localStorage.getItem(`calendar-${selectedMonth}`);
+
+    if (savedState) {
+        const calendarState = JSON.parse(savedState);
+        document.querySelectorAll(".day").forEach(day => {
+            const dayNumber = day.textContent.trim();
+            if (calendarState[dayNumber]) {
+                if (calendarState[dayNumber] === "sun") {
+                    day.innerHTML = `${dayNumber} ☀️`;
+                    day.dataset.icon = "sun";
+                    day.style.backgroundColor = "#FFF899"; // Жёлтый фон
+                    day.style.color = "black";
+                } else if (calendarState[dayNumber] === "water") {
+                    day.innerHTML = `${dayNumber} 💧`;
+                    day.dataset.icon = "water";
+                    day.style.backgroundColor = "#A9B7F0"; // Синий фон
+                    day.style.color = "white";
+                }
+            }
+        });
+    }
+}
+
+function selectMonth(month) {
+    document.querySelector('.dropdown').textContent = month + ' ⬇️';
+    document.getElementById('monthList').style.display = 'none';
+    document.querySelectorAll(".day").forEach(day => {
+        day.innerHTML = day.textContent.split(" ")[0]; // Удаляем значки
+        day.style.backgroundColor = "white";
+        day.style.color = "black";
+        delete day.dataset.icon;
+    });
+
+    loadCalendarState(); // Загружаем сохранённые данные для нового месяца
+}
+
+    </script>
+</body>
+</html>

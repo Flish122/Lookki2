@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уроки - Lookki</title>
+    <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <style>
+        body {
+            background-color: #E3E3E3;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            padding: 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2B5718;
+        }
+        .notification {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            width: 90%;
+        }
+        .menu button {
+            background: #FFF899;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .content {
+            width: 90%;
+            max-width: 600px;
+        }
+        .lesson {
+            background: #A9B7F0;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .lesson img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .lesson h3 {
+            margin-top: 10px;
+        }
+        .notification {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">Lookki</div>
+        <div class="notification" onclick="window.location.href='notifications.html'" style="font-size: 32px;">🔔</div>
+    </div>
+    <div class="menu">
+        <button onclick="window.location.href='index.html'">Мои растения</button>
+        <button onclick="window.location.href='catalog.html'">Каталог</button>
+        <button onclick="window.location.href='klr.html'">Календарь</button>
+        <button onclick="window.location.href='diary.html'">Дневник</button>
+        <button>Уроки</button>
+    </div>
+    <div class="content">
+        <div class="lesson">
+            <img src="1.png" alt="Как ухаживать за растениями">
+            <h3>Как ухаживать за домашними растениями</h3>
+        </div>
+        <div class="lesson">
+            <img src="2.png" alt="Советы и профилактика болезней">
+            <h3>Советы/профилактика заболеваний/причины стресса</h3>
+        </div>
+        <div class="lesson">
+            <img src="3.png" alt="Неприхотливые растения">
+            <h3>Неприхотливые растения и их уход</h3>
+        </div>
+        <div class="lesson">
+            <img src="4.png" alt="Все о цветах">
+            <h3>Все о цветах</h3>
+        </div>
+    </div>
+</body>
+</html>

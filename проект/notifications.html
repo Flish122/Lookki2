@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уведомления</title>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .back {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2B5718;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        .notification-card {
+            background: #C1E1C1;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+        .notification-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .notification-text {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        .notification {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="back" onclick="window.history.back()">⬅</div>
+        <div class="logo">Lookki</div>
+    </div>
+    <h2>Уведомления</h2>
+
+    <div class="notification-card">
+        <div class="notification-title">Полив</div>
+        <div class="notification-text">Сегодня должен быть полив кактуса.</div>
+    </div>
+
+    <div class="notification-card">
+        <div class="notification-title">Приложение</div>
+        <div class="notification-text">Обновление! Обновите ваше приложение.</div>
+    </div>
+
+    <div class="notification-card">
+        <div class="notification-title">Состояние растения</div>
+        <div class="notification-text">Сегодня нужно пересадить архидею.</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дневник - Lookki</title>
+    <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <style>
+        body {
+            background-color: #E3E3E3;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            padding: 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2B5718;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            width: 90%;
+        }
+        .menu button {
+            background: #FFF899;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .section {
+            width: 90%;
+            max-width: 400px;
+            background: #F3EAF8;
+            margin-right: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .section h3 {
+            background: #C7A4D2;
+            padding: 10px;
+            margin: -10px -10px 10px -10px;
+            border-radius: 10px 10px 0 0;
+            color: black;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            border: none;
+            padding: 10px 5px 10px 10px;
+            border-radius: 5px;
+            resize: none;
+            background: #F9F0FF;
+        }
+        .notification {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">Lookki</div>
+        <div class="notification" onclick="window.location.href='notifications.html'" style="font-size: 32px;">🔔</div>
+    </div>
+    <div class="menu">
+        <button onclick="window.location.href='project.html'">Мои растения</button>
+        <button onclick="window.location.href='catalog.html'">Каталог</button>
+        <button onclick="window.location.href='klr.html'">Календарь</button>
+        <button onclick="window.location.href='diary.html'">Дневник</button>
+        <button onclick="window.location.href='lessons.html'">Уроки</button>
+    </div>
+    <div class="section">
+        <h3>Поливы</h3>
+        <textarea id="watering" placeholder="Место для ввода..."></textarea>
+    </div>
+    <div class="section">
+        <h3>Удобрения</h3>
+        <textarea id="fertilizers" placeholder="Место для ввода..."></textarea>
+    </div>
+    <div class="section">
+        <h3>Заметки</h3>
+        <textarea id="notes" placeholder="Место для ввода..."></textarea>
+    </div>
+
+    <script>
+        // Загрузка данных из localStorage, если они есть
+        document.getElementById("watering").value = localStorage.getItem("watering") || "";
+        document.getElementById("fertilizers").value = localStorage.getItem("fertilizers") || "";
+        document.getElementById("notes").value = localStorage.getItem("notes") || "";
+
+        // Сохранение данных в localStorage при изменении текста в textarea
+        document.getElementById("watering").addEventListener("input", function() {
+            localStorage.setItem("watering", this.value);
+        });
+        document.getElementById("fertilizers").addEventListener("input", function() {
+            localStorage.setItem("fertilizers", this.value);
+        });
+        document.getElementById("notes").addEventListener("input", function() {
+            localStorage.setItem("notes", this.value);
+        });
+    </script>
+</body>
+</html>

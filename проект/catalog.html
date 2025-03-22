@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Lookki</title>
+    <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <style>
+        body {
+            background-color: #DFF0D8; /* Зеленый фон */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            padding: 10px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2B5718;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            width: 90%;
+        }
+        .menu button {
+            background: #FFF899;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .search {
+            width: 90%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #A9B7F0;
+            border-radius: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            width: 90%;
+            max-width: 600px;
+        }
+        .card {
+            background: #FFFFFF;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+        }
+        .notification {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">Lookki</div>
+        <div class="notification" onclick="window.location.href='notifications.html'" style="font-size: 32px;">🔔</div>
+    </div>
+
+    <div class="menu">
+        <button onclick="window.location.href='project.html'">Назад</button>
+    </div>
+
+    <input type="text" class="search" placeholder="🔍 Поиск растений...">
+
+    <div class="grid">
+        <div class="card">
+            <img src="begonia.png" alt="Бегония">
+            <h3>Бегония</h3>
+            <p>Semperflorens Roze</p>
+        </div>
+        <div class="card">
+            <img src="fikus.png" alt="Фикус">
+            <h3>Фикус</h3>
+            <p>Rubber-bearing</p>
+        </div>
+        <div class="card">
+            <img src="aloe.png" alt="Алоэ">
+            <h3>Алоэ</h3>
+            <p>Vera</p>
+        </div>
+        <div class="card">
+            <img src="fialka.png" alt="Фиалка">
+            <h3>Фиалка</h3>
+            <p>Uzambarskaya</p>
+        </div>
+        <div class="card">
+            <img src="kaktus.png" alt="Кактус">
+            <h3>Кактус</h3>
+            <p>Decorative</p>
+        </div>
+        <div class="card">
+            <img src="tolstyanka.png" alt="Толстянка">
+            <h3>Толстянка</h3>
+            <p>Ovate</p>
+        </div>
+    </div>
+</body>
+</html>
